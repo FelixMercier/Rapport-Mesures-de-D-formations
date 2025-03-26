@@ -1,0 +1,157 @@
+/* tous les éléments contenus dans html auront la police Arial */
+
+html {
+    font-family: Arial;
+    /* background-color: blanchedalmond; */
+}
+
+body {
+    min-height: 100vh;
+}
+
+.maDiv {
+    padding-top: 20px;
+    /* Espace en haut */
+    padding-bottom: 20px;
+    /* Espace en bas */
+    background-color: lightgray;
+}
+
+.titre_para {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* Les éléments sont répartis avec un espace entre eux */
+    align-items: center;
+    /* Les éléments sont alignés verticalement */
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.container {
+    position: relative;
+    /* Position relative pour que les boutons soient positionnés par rapport à ce conteneur */
+    display: inline-block;
+    /* Pour que le conteneur s'adapte à la taille de l'image */
+}
+
+#diapo_droite_etat,
+#diapo_gauche_etat {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 20px;
+    height: 20px;
+}
+
+#diapo_droite_laser,
+#diapo_gauche_laser {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 20px;
+    height: 20px;
+}
+
+.image-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 50%;
+    padding: 10px;
+    /* Espacement entre les images */
+}
+
+.liste li {
+    list-style: none;
+    /* Supprimer les puces */
+}
+
+.contenu {
+    display: flex;
+    align-items: center;
+}
+
+.contenu img {
+    margin-right: 10px;
+    /* Espacement entre l'image et le texte */
+}
+
+.separator {
+    width: 100%;
+    border-bottom: 2px solid black;
+    /* Bordure inférieure de 2px de large */
+    margin: 20px 0;
+    /* Marge autour de la séparation */
+}
+
+.zoomable-image {
+    transition: transform 0.3s ease;
+}
+
+.zoomable-image:hover {
+    transform: scale(1.3);
+}
+
+.containers {
+    position: relative;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 8px;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+		
+.legend {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.legend-item {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.photogrammetry {
+    background-color: red;
+}
+
+.cyan-laser {
+    background-color: cyan;
+}
+
+.yellow-laser {
+    background-color: yellow;
+}
+
+.green-topo {
+    background-color: green;
+}
+

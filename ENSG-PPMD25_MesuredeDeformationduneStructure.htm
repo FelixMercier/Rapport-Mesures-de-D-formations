@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/style.css">
+    <title>ENSG-PPMD25 : Mesure de Deformation d'une Structure</title>
+
+</head>
+
+<style>
+    .body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .txt-gif{
+        display: flex;
+        width: 90%;
+    }
+
+    .text-zone{
+        width: 60%;
+        padding: 10px;
+        padding-top: 120px;
+    }
+
+    .gif-zone {
+        width: 40%; 
+        padding-right: 10px;
+    }
+
+    .gif-img{
+        height: 350px;
+    }
+
+
+</style>
+
+
+<body><div style="width:75%; text-align:center; margin: auto ;padding-top:20pt">
+    <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/ensg_uge.png" style="float:left" width="20%" hspace="50pt">
+	<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/pont_logo.png" style="float:right" width="10%">
+    <br>
+    <h1 style="text-align:center"> Mastère spécialisé en Photogrammétrie, Positionnement et Mesure de Déformations (PPMD)</h1>
+	
+	
+    <h2> Etude de déformation d'une structure </h2>
+    <h3>Rapport de l'étude</h3>
+    <div style="clear:both"></div>
+    <hr width="50%">
+    <div style="width:90%;text-align:justify;margin: auto">
+    <!--    <br>  À la fin du mois de mars 2024, les étudiants de la filière PPMD Spécialisés en Géolocalisation ont entrepris une modélisation de la déformation d'une structure. Ce travail se place dans le cadre de leurs cours permettant d'exploiter leurs
+        compétences dans différentes techniques d'acquisition soit : la lasergrammétrie, la photogrammétrie et la topométrie. Cette structure a été installée en septembre 2023 par des élèves de l'école de Ponts et Chaussées dans le cadre de la thèse de Romane
+        Boutillier
+        </br>-->
+        <div style="text-align:center">
+            <p style="text-decoration: underline"> Etudiants : </p>
+
+            <i> Gabin Bourlon - Clément Cambours - Clara Correia - Jules Faguet - Felix Mercier - Vanessa Monnier - Léonie Leroux - Lorine Peseux</i>
+            <br>
+
+            <p style="text-decoration: underline"> Encadrants : </p>
+
+            <i> Jean-Pierre PAPELARD - Franck TERTRE </i>
+            <br>
+        </div>
+
+        <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+            <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/general.png" width="60%">
+        </div>
+    </div>
+</div>
+
+
+<div style="text-align: center;">
+    <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/structure2.png" style="display: inline-block;" alt="Image 1" width="40%">
+    <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/1.jpg" style="display: inline-block;" alt="Image 2" width="40%">
+    <p>Figure : Vue Interieur et Exterieur de la structure avant le chantier</p>
+</div>
+
+
+<hr width="50%">
+<!-- Introduction -->
+
+<div style="text-align: left;">
+<h1>Sommaire</h1>
+
+
+<ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#visu_resultat">Visualisation des résultats</a></li>
+    <li><a href="#methodo">Methodologie</a></li>
+	<li><a href="#brute">Données Brutes</a></li>
+	<li><a href="#bilan">Bilan et Perspectives</a></li>
+</ul>
+</div>
+
+
+<hr width="50%">
+<h1>Introduction</h1>
+
+<p>
+	Dans le cadre de la filière PPMD du diplôme d'ingénieur de l’ENSG et de
+ la collaboration établie entre l’ENSG et l’ENPC au fil des ans, 
+	il nous a été demandé de réaliser un projet d’auscultation sur une 
+structure en bois réalisée par les élèves de l’ENPC et conçu par une 
+doctorante de cette même école,
+	Romane Boutillier. Le projet porté par Franck Tertre, responsable 
+pédagogique et enseignant de l’ENSG et Cyril Douthe, maître de 
+conférence à l’ENPC vise à fournir des
+	informations utiles pour les futures structures construites et a été 
+effectué en utilisant les techniques de topométrie, lasergrammétrie et 
+photogrammétrie.
+
+</p>
+
+
+<hr width="50%">
+<h1 id="visu_resultat">Visualisation des résultats</h1>
+
+
+    <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Visualisation Laser Potree </strong></p>
+		 <div class="legend-item photogrammetry">Photogrammétrie</div>
+        <div class="legend-item cyan-laser">Laser extérieur (cyan)</div>
+        <div class="legend-item yellow-laser">Laser extérieur (jaune)</div>
+        <div class="legend-item green-topo">Topo</div>
+    </div>
+
+    <div style="text-align:center;">
+        <iframe src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/index.htm" alt="Nuage de points 3D de la structure à l'état 0 généré par le scanner laser" style="width: 80%; height: 800px"></iframe>
+        <br><a href="http://dias.ensg.eu/2024/StructureENPC/Potree/index.html" target="_blank"> Visualiser dans une fenêtre indépendante </a>
+    </div>
+
+
+<hr width="50%">
+<h1 id="methodo">Méthodologie</h1>
+
+<p>
+
+    Le but de cette auscultation et de qualifier les déformations de la structure en bois sous l'effet de différentes contraintes.
+    La manière dont la structure a été réalisée implique de mesurer deux type de déformations. Nous mesurerons le déplacement des alvéoles les unes par rapport aux autres mais aussi les déformations au sein même d'une alvéole. 
+</p>
+<p>
+    Pour contraindre la structure nous avons à notre dispositions des charges de quinze kilogrammes que nous pouvons attacher à différent endroit de la structure.
+    Ainsi, nous définissons 7 états (numérotés de 0 à 6) correspondant à 6 contraintes différentes. La charge totale et la répartition des poids changeant d'un état à l'autre.
+    L'état 0 et 6 n'implique aucune charge, le 0 sert de témoin pour fixer l'état initial auquel nous comparerons les états contraints suivant, et le 6 permettra de voir si la structure reprend sa forme initiale après le retrait des charges ou si ces dernières ont définitivement déformer la structure.
+</p>
+<p>
+    Afin de mesurer les déformations de la structure sous les différentes contraintes, nous avons dû faire coexister trois techniques de mesure : la topométrie, la lasergrammétrie et la photogrammétrie.
+    Ceci implique d'organiser la pose des instruments et des cibles de façon cohérente. L'utilisation de trois techniques présente plusieurs intérêts, pédagogiques et techniques. En effet, les trois techniques différentes permettent d'avoir plus de contrôle sur les calculs en plus de se compléter les unes les autres. 
+    La topométrie nous permettra de mesurer les déformations visibles à l'extérieur de la structure (les stations totatales observent difficilement l'interieur). La lasergrammétrie et la photogrammétrie quant à elles permettront de mesurer les déformations internes à le structure, les déformations aux seins d'une alvéole en particulier.
+</p>
+
+
+<div class="txt-gif">
+    
+    <div class="text-zone">
+        <p>
+            Voici une description des six états de contraintes que nous avons mis en place:
+            <ul>
+                <li>Etat 0 : Etat initial, aucune contrainte n'est apliquée, sert de témoin</li>
+                <li>Etat 1 : 3 x 15kg, répartis à l'avant de la structure, côté piliers</li>
+                <li>Etat 2 : 7 x 15kg, répartis à l'avant et au Nord de la structure</li>
+                <li>Etat 3 : 11 x 15kg, répartis à l'avant, au Nord et au Sud de la structure</li>
+                <li>Etat 4 : 6 x 15kg, répartis au Nord et au Sud de la structure</li>
+                <li>Etat 5 : 3 x 15kg, répartis au Sud de la structure</li>
+                <li>Etat 6 : Pas de contraintes, contrôle de l'état initiale</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="gif-zone">
+        <h3>Schéma des différents états</h3>
+        <img src="Photo_Laser_Etats_(unis)_lol/GIF.gif" class="gif-img" alt="GIF représentant les différents états">
+    </div>
+
+</div>
+
+
+<p>
+    
+</p>
+
+
+<h2>Instruments : </h2>
+<h3>Topographie : </h3>
+
+<h3>Lasergrammétrie : </h3>
+
+<h3>Photogrammétrie : </h3>
+
+
+<h2>Cibles : </h2>
+Grâce à la version 2 de MicMac, nous avons la possibilité d'utiliser des cibles codées pour une détection automatique. 
+Nous avons donc à disposition trois jeux de cibles de différentes tailles (Petites, moyennes, et grandes) dont la numérotation varie de 000 à 172. 
+<br>
+Ce choix de numératation a été fait pour maximiser la capacité de détection dans les images, mais crée un problème de doublons entre les sets.  
+On a donc donné la priorité aux plus petites cibles, puis ajouté un suffixe 'b' aux numéros réutilisés. 
+
+<h3>Structure : </h3>
+La structure est composée d'alvéoles dont la planéité au cours de la déformation doit être contrôlée. 
+Pour cela, on place des cibles à chaque coin de ces alvéoles. Cette dispoition permet de contrôler les mouvements relatifs et les déformations intra-alévole. 
+
+<h3>Références : </h3>
+Les plus grosses cibles ont été utilisées comme visées de référence à (plus) longue distance, et visibles par le Scanner Laser. 
+On peut noter l'ajout de cibles moyennes sur le plafond surplombant la structures de sortes à être visibles par les prises photogrammétriques. 
+
+<h2>Prismes : </h2>
+Les stations totales nécessitent des prismes lointains pour former les références et le réseau local du chantier, 
+ainsi que des mini-prismes disposés sur la structure pour observer les déplacements relatifs.
+
+<h3>Prismes de référence : </h3>
+Le chantier a été équipé de 4 prismes de référence, disposés de manière à former un quadrilatère autour de la structure.
+<br>
+Ils ont été nommés 333, 444, 555, 666 pour les différencier des nomenclatures utilisées par les cibles. 
+<br>
+Leur orientation a été fixée au début du chantier pour être visibles par les stations totales, et éviter les manipulations successives.
+
+<h3>Mini-prismes : </h3>
+Nous avons répartis les prismes tout autour de la structure de sorte à être visibles par les deux stations automatiques. 
+<br>
+Le plancher est encadrés par 3 rangées de prismes (une sur chaque côté visible) et la structure de la même manière.
+
+<br>
+On a ensuite ajouté des prismes sur le toit pour permettre de mesurer des coupes transversales et longitudinales. 
+
+
+
+
+
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p class="titre_para"><strong> Protocole </strong></p>
+<p>
+La manipulation avait pour but de voir les déformations subies par la 
+structure lors de l'ajout de poids plus ou moins répartis. Nous avons
+ utilisé comme appareils en lasergrammétrie les lasers Leica P40 et 
+Trimble X7, en topométrie les tachéomètres TS30 et TM60 en levé 
+ automatique/motorisé et les TS15 et MS60 pour la polygonation et en 
+photogrammétrie les appareils Nikon Mark III et Mark IV.<br>
+<br> Les emplacements
+ et la masse des poids ajoutés à chaque étape ont été choisis pour faire
+ en sorte de déformer la structure de façon uniforme et sans l'abimer.
+ Les poids étaient des sacs de sables de 7 kilos attachés à des cordes. 
+Nous avons répartis des mini-prismes et des cibles black and white sur
+ la structure pour mettre en évidence les déformations. Les cibles black
+ and white ont été posées au milieu des cellules de la structure pour 
+ pouvoir comparer nos résultats aux modèles 3D et ses prévisions de 
+déformation.<br>
+ <br>
+ Dans ce travail nous essayons d'estimer la déformation de la structure 
+lorsqu'on l'expose à des charges de plus en plus fortes, reparties de 
+façon plus ou moins uniforme. 
+ <br>
+<br>
+		<br>Etat 0 : Charge = 0 KG
+        <br> Etat 1 : Charge = 28 Kg au NORD OUEST
+        <br> Etat 2 : Charge = 56 Kg
+        <br> Etat 3 : Charge = 91 Kg
+        <br> Etat 4 : Charge = 133 Kg
+        <br> Etat 5 : Charge = 63 Kg au NORD EST
+        <br> Etat 0 après : Charge = 0 Kg
+        <br>
+</p>
+
+
+<div id="gif" style="padding: 10px; text-align: center;">
+        
+<table>
+<tbody><tr><th>
+            <img class="zoomable-image" id="gif_etat_int" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/gif_etat_int3.gif" onclick="ouvrirdansnouvelonglet(this.src)" width="100%" vspace="50pt">
+            <br> Figure: Gif du processus au cours des étapes vu de l'intérieur<br>
+</th>
+<th>
+        
+            <img class="zoomable-image" id="gif_etat_ext" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/gif_etat_ext1.gif" onclick="ouvrirdansnouvelonglet(this.src)" width="100%" vspace="50pt">
+
+            <br> Figure : Gif du processus au cours des étapes vu de l'extérieur <br>
+        
+</th>
+</tr></tbody></table>
+    </div>
+
+	
+	         <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+                <p class="titre_para"><strong>Nomenclature </strong></p>
+            </div>
+
+
+            <div id="nomenclature" style="text-align: center; position: relative; margin: 0 auto;">
+			
+			<table>
+                <tbody><tr>
+                </tr><tr><td><img class="zoomable-image" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/plans_avec_cible.png" onclick="ouvrirdansnouvelonglet(this.src)" style="margin: 10px;" width="98%"></td>
+                <td><img class="zoomable-image" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/cible_exterieur.png" alt="" onclick="ouvrirdansnouvelonglet(this.src)" style="margin: 10px;" width="98%"></td></tr>
+                <tr><td><img class="zoomable-image" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/cible_interieur_scan.png" onclick="ouvrirdansnouvelonglet(this.src)" style="margin: 10px;" width="98%"></td>
+                <td><img class="zoomable-image" src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/cible_exterieur_scan.png" onclick="ouvrirdansnouvelonglet(this.src)" style="margin: 10px;" width="98%"></td></tr>
+				
+			</tbody></table>
+            </div>
+
+            <script>
+                function ouvrirdansnouvelonglet(src) {
+                    window.open(src, '_blank');
+                }
+            </script>
+
+
+
+	<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Méthodologie topométrie </strong></p>
+    </div>
+	<div>
+	<p>
+		Pour les acquisitions aux tachéomètres motorisés, nous avons décidé de
+ placer un appareil de chaque côté de la structure et nous avons réparti
+ les mini-prismes en fonction
+	de ces emplacements. Après avoir placé les mini-prismes (<a href="#nomenclature"> voir schéma et photos</a>)
+ nous avons
+	programmé dans les appareils la liste et l’emplacement des points à 
+mesurer automatiquement puis les levés ont été lancés à chaque état.
+	Il y a eu 7 états :
+	</p><ul>
+	<li>état 0 : pas de déformation a priori, pas de poids, état initial.</li>
+	<li>état 1 : Charge = 28 NORD OUEST KG</li>
+	<li>état 2 : Charge = 56 KG répartis sur la structure</li>
+	<li>état 3 : Charge = 91 KG répartis sur la structure</li>
+	<li>état 4 : Charge = 133 KG répartis sur la structure</li>
+	<li>état 5 : Charge = 63 NORD EST KG</li>
+	<li>état 6 : pas de poids, état final</li>
+	<li>état 7 : propre à la technique topométrie pour voir la structure continue de se déformer dans le temps</li>
+	</ul>
+	<p></p>
+	
+	<p> 
+	Un pré-traitement a été effectué dans prepaComp. Les données brutes 
+sont converties en observations qui sont utilisées dans le logiciel 
+d'estimation. Les données brutes ont été séparées dans un fichier pour 
+chaque état. En effet, le fichier de données brutes était incrémenté à 
+chaque nouvelle acquisition automatique. Nous avons donc finalement 2 
+fichiers d'observations par état correspondant aux deux stations 
+automatiques. Pour les autres données utiles à la polygo le traitement 
+est classique donc nous ne détaillerons par leurs traitement 
+ici.&lt;\br&gt; Les estimations sont effectuées à l’aide du logiciel 
+Comp3D développé par l’IGN. Les positions des différents prismes et 
+cibles y sont estimées par moindres carrés. Un calcul par état en 
+utilisant l'état 0 comme référence a été réalisé. Ainsi, les 
+déplacements sont déterminés par rapport à l'état initial.
+	
+	</p>
+	</div>
+
+	<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Méthodologie Laser </strong></p>
+    </div>
+	<div>
+	<p>La structure a été scanné à la fois de l'interieur (dessous de la 
+structure) et de l'extérieur. Des premiers levés lasers ont permis 
+d'avoir la structure dans son ensemble que vous pouvez voir dans la 
+partie <a href="#visu_resultat">Visualisation des résultats</a>. 
+	Ensuite, à partir du début de la mise en carge de la structure, il y 
+avait deux levés par état, celui du Trimble X7 qui mesurait l’intérieur 
+et celui du Leica P40 qui était positionné en dehors et qui mesurait 
+l’extérieur du même côté que les appareils photo. Comme décrit 
+précédemment, il y avait des cibles au milieu de chaque cellule à 
+l’intérieur (voir Figure 2.3) et à l’extérieur sur toutes les cellules 
+visibles (car certaines
+	cellules étaient face au mur). Pour chaque états les deux stations 
+lasers mesuraient à la fois des références stables (points 1004, 1011, 
+1001, 1002) et les cibles BW de la structure. 
+	</p>
+	<br>
+<br>
+	<p>Le premier traitement du laser était de construire le modèle 3D en 
+utilisant le logiciel Cyclone. Avec ce logiciel, il est possible de 
+faire pointer les points de références et leurs associés des coordonnées
+ afin que le nuage de points soient géoréférencés. On peut ensuite 
+assembler les nuages pour avoir une structure 3D. 
+	Pour les deux lasers les traitements ont été les mêmes mais sur des 
+logiciels différents. Pour la X7, nous avons utilisé les logiciels 
+PlyXDrop et PlyXGeoref et pour la P40, Cyclone et PlyXDrop. Sur chaque 
+nuages résultant de chaque état nous avons pointé les cibles visibles et
+ nous avons extrait leurs coordonnées. Nous avons fait l'hypothèse que 
+les trépieds n'ont pas bougés entre les différentes acquisitions et 
+utilisé l'état 0 comme référence pour chaque état. Il fallait associer à
+ chaque nuage de point, un fichier de coordonnées des cibles BW 
+présentes sur le chantier et permettant de lier les mesures 
+lasergrammétriques aux mesures topométriques pour la P40 avec Cyclone 
+pour les références et pour la X7 PlyXGeoref. Nous les avons ensuite 
+géoréférencés avec le logiciel Comp3D et sorti un seul fichier commun 
+par station. Ainsi pour chaque état nous avons les coordonnées des 
+cibles. En utilisant un petit logiciel CompDropTools, nous avons ensuite
+ comparé les coordonnées de l'état 0 à tous les états ce qui permet 
+d'avoir la différence et donc le déplacement des cibles pour chaque 
+état. Ces fichiers sont disponibles dans la partie <a href="#brute">Données</a>. 
+	</p>
+	</div>
+	<!-- Méthodologie Laser Auto --> 
+	<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Méthodologie Laser Automatique</strong></p>
+    </div>
+	<div>
+	<p>Une autre exploitation du laser a été de l'utilisé avec une méthode 
+automatique, cherchant des points homologues dans l'image issue de 
+l'acquisition. Cette technique n'a été utilisé que pour l'intérieur car à
+ l'extérieur la surface n'est pas assez orthogonale à notre laser P40. 
+Une fois les points homologues trouvés entre l'image à l'état 0 et les 
+images des autres états, nous obtenons des fichiers avec les coordonnées
+ de spixels des points homologues entre ces images. Afin de comparer ces
+ points homologues avec nos autres techniques un script python rapide a 
+été crée. Pour une comparaison état 0 autre état, le code va parcouri la
+ liste des cibles BW de la strucutre et déterminer quels sont les points
+ homologues qui sont dans une sphère de moins de 20 cm de rayon. Une 
+fois ces points récupérés, le code détermine la médiane des valeurs en 
+X, Y, Z. Cette médiane de coordonnées et ensuite comparé aux coordonnées
+ des points homologues, celui qui à la plus petite distance avec la 
+médiane est choisi comme point de comparaison. Au final, le code sort un
+ fichier .cor avec un tableau des points homologues choisies et la 
+différence entre l'état 0 et l'autre état. Ce fichier est ensuite 
+converti en .ply pour être affiher avec les autres résultats. 
+	</p>
+	</div>
+	
+	
+	
+	
+	  <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;" id="methodo_photogra">
+        <p class="titre_para"><strong>Auscultation par photogrammétrie</strong></p>
+        <h4>Matériel mobilisé :</h4>
+        <ul>
+            <li>Canon Mark III/IV</li>
+            <li>Objectifs grand angle (compromis entre une bonne résolution sur la figure et une bonne précision du relèvement)</li>
+        </ul>
+
+        <h3>Calibration</h3>
+
+        <p>
+            Une prise de vue d’auto calibration précède l’acquisition et
+ permet d’estimer les paramètres intrinsèques des appareils :
+             l’acquisition d’auscultation ne comporte pas suffisamment 
+de points connus pour l’estimation de ces paramètres. 
+            En amont également, des points fixes (1011 et 1004), sont 
+disposés pour renforcer la configuration volumique du réseau,
+             et avoir un relèvement contraint dans les trois directions.
+   
+        </p>
+<br>
+<br>
+        <p>
+            Les deux appareils sont positionnés autour de la face 
+nord-est de la structure,
+             de manière à intersecter le maximum de cibles : celles du 
+chantier global
+             (dont la position est supposée fixe au cours de 
+l’acquisition) et celles dont le mouvement traduit celui de la 
+structure.
+             A chaque état, les appareils sont déclenchés simultanément.
+        </p>
+        
+        <h3>Traitements photogrammétriques</h3>
+
+        <p>
+            Les traitements photogrammétriques réalisés avec le logiciel MicMac sont les suivants :
+
+            </p><ul>
+                <li>
+                    <ul>
+                        <li>SaisieAppuisInitQT : mesure de la position dans les images des cibles du réseau pour chaque position à l’état initial.</li>
+                        <li>mm3d SaisieAppuisInitQT MIV_0000.JPG NONE appui.xml mesures.xml</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <ul>
+                        <li>Aspro : relèvement photogrammétrique de la position de chaque appareil à l’état initial
+                             dans le repère terrain à partir des positions des cibles dans l’image et dans le repère terrain,
+                             et des paramètres intrinsèques estimés par auto calibration.</li>
+                        <li>mm3d Aspro MIV_0000.JPG Calib appui.xml mesures-S2D.xml</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li>SaisieAppuisPredicQT : mesure de la position
+ dans les images des cibles de la structure guidée par les coordonnées 
+calculées au préalable par lasergrammétrie</li>
+                        <li>mm3d SaisieAppuisPredicQT MIV_0000.JPG Aspro appui.xml mesures.xml</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li>Campari : compensation de la position et orientation
+                             de la caméra et calcul des coordonnées des cibles par intersection pour chaque état.</li>
+                        <li>mm3d Campari ".*JPG" Aspro Compense ExpTxt=1 GCP=[appui.xml,0.0005,mesures-S2D.xml,0.5] RapTxt=RapportCampari.txt</li>
+                        <ul>
+                            <li>0.5 [px] = précision du pointé en fraction de pixel</li>
+                            <li>0.0005 [mm] = contrainte sur les cibles fixes</li>
+                        </ul>
+                    </ul>
+                </li>
+            </ul>
+        <p></p>
+
+        <h3>Résultats obtenus</h3>
+        <p>
+            On obtient finalement, pour chaque état, les coordonnées de chaque cible.
+        </p>
+    </div>
+
+
+
+<br>
+
+<br>
+
+
+
+
+<!--
+<h2 id="traitement">Traitement</h2>
+
+<hr width="50%"></hr>
+<div style="text-align: center;">
+    <a id="visualisation edmond" href="3DComp3D/3DComp3D.html" target="_blank" style="text-align: center; padding-top: 50pt;">Visualisation COMP3D</a>
+</div>
+-->
+
+<hr width="50%">
+<h1 id="brute">Données Brutes</h1>
+
+
+<h3>Sommaire des données brutes</h3>
+
+
+<ul>
+    <li><a href="#laser_p40">COR Lasergrammétrie P40</a></li>
+    <li><a href="#photo_c">COR Photogrammétrie</a></li>
+    <li><a href="#topo_c">COR Topométrie</a></li>
+	
+	<br>
+	
+	<li><a href="#donnee_rvx">RVX Laser automatique</a></li>
+	
+	<br>
+	
+	
+	<li><a href="#donnee_new_topo">NEW Topométrie </a></li>
+	
+	<br>
+	
+	<li><a href="#donnee_ply_ext">PLY Laser Exterieur</a></li>
+	<li><a href="#donnee_ply_int">PLY Laser Interieur</a></li>
+	<li><a href="#donnee_ply_photo">PLY Photogrammétrie</a></li>
+	<li><a href="#donnee_ply_photo">PLY Topométrie</a></li>
+	
+</ul>
+
+
+
+
+ 
+	
+	  <div>
+        <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p class="titre_para"><strong>Données Lasergrammétrie P40 </strong></p>
+
+            <p> <u> Etats </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées des cibles black 
+and white dans les nuages de chaque état pour le laser P40. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+			
+			
+            <table>
+                <tbody><tr>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_0.cor" target="cor"> Laser_P40_Etat_0.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_1.cor" target="cor"> Laser_P40_Etat_1.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_2.cor" target="cor"> Laser_P40_Etat_2.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_3.cor" target="cor"> Laser_P40_Etat_3.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_4.cor" target="cor"> Laser_P40_Etat_4.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_5.cor" target="cor"> Laser_P40_Etat_5.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/etats/SP0_6.cor" target="cor"> Laser_P40_Etat_6.cor</a></td>
+                </tr>
+            </tbody></table>
+              <p> <u> Différences </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées et deplacements 
+entre les cibles balck and white dans les nuages à l'état 0 et à un 
+autre état. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+            <table>
+                <tbody><tr>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_1cor.cor" target="cor"> Laser_P40_Etat_0-Etat_1.corr</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_2cor.cor" target="cor"> Laser_P40_Etat_0-Etat_2.corr</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_3cor.cor" target="cor"> Laser_P40_Etat_0-Etat_3.corr</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_4cor.cor" target="cor"> Laser_P40_Etat_0-Etat_4.corr</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_5cor.cor" target="cor"> Laser_P40_Etat_0-Etat_5.corr</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/ext/diff/SP0_0cor-SP0_6cor.cor" target="cor"> Laser_P40_Etat_0-Etat_6.corr</a></td>
+                </tr>
+            </tbody></table>
+        </div>
+		
+		
+		
+		
+        <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p class="titre_para"><strong>Données Lasergrammétrie Interieur </strong></p>
+
+            <p> <u> Etats </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées des cibles black 
+and white dans les nuages de chaque état pour le laser interieur. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+                <table>
+                    <tbody><tr>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat0.cor" target="cor"> Laser_int_Etat_0.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat1.cor" target="cor"> Laser_int_Etat_1.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat2.cor" target="cor"> Laser_int_Etat_2.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat3.cor" target="cor"> Laser_int_Etat_3.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat4.cor" target="cor"> Laser_int_Etat_4.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat5.cor" target="cor"> Laser_int_Etat_5.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/etats/I_etat6.cor" target="cor"> Laser_int_Etat_6.cor</a>
+                    </td></tr>
+                </tbody></table>
+                   <p> <u> Différences </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées et deplacements 
+entre les cibles balck and white dans les nuages à l'état 0 et à un 
+autre état pour la laser interieur. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+                <table>
+                    <tbody><tr>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat1cor.cor" target="cor"> Laser_int_Etat_0-Etat_6.corr</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat2cor.cor" target="cor"> Laser_int_Etat_0-Etat_5.corr</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat3cor.cor" target="cor"> Laser_int_Etat_0-Etat_4.corr</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat4cor.cor" target="cor"> Laser_int_Etat_0-Etat_3.corr</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat5cor.cor" target="cor"> Laser_int_Etat_0-Etat_2.corr</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/laser/int/diff/I_etat0cor-I_etat6cor.cor" target="cor"> Laser_int_Etat_0-Etat_1.corr</a></td>
+                    </tr>
+                </tbody></table>
+
+		
+		</div>
+		
+
+	
+          <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p class="titre_para"><strong>Données Photogrammétrie </strong></p>
+            <p> <u> Etats </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées des cibles black 
+and white dans les nuages de chaque état par photogrammétrie. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+            <table>
+                <tbody><tr>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat0.cor" target="cor"> Photo_Etat_0.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat1.cor" target="cor"> Photo_Etat_1.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat2.cor" target="cor"> Photo_Etat_2.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat3.cor" target="cor"> Photo_Etat_3.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat4.cor" target="cor"> Photo_Etat_4.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat5.cor" target="cor"> Photo_Etat_5.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/etats/Etat6.cor" target="cor"> Photo_Etat_6.cor</a></td>
+                </tr>
+            </tbody></table>
+               <p> <u>Différences </u> 
+			Liens pour accéder aux coordonnées géoréférencées et deplacements 
+entre les cibles balck and white dans les nuages à l'état 0 et à un 
+autre état. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.
+			</p>
+            <table>
+                <tbody><tr>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat1cor.cor" target="cor"> Photo_Etat_0-Etat_1.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat2cor.cor" target="cor"> Photo_Etat_0-Etat_2.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat3cor.cor" target="cor"> Photo_Etat_0-Etat_3.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat4cor.cor" target="cor"> Photo_Etat_0-Etat_4.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat5cor.cor" target="cor"> Photo_Etat_0-Etat_5.cor</a></td>
+                    <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/photo/diff/Etat0cor-Etat6cor.cor" target="cor"> Photo_Etat_0-Etat_6.cor</a></td>
+                </tr>            
+            </tbody></table>
+
+
+              <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+                <p class="titre_para"><strong>Données Topométrie </strong></p>
+                <p> <u> Etats </u> <br>
+			Liens pour accéder aux coordonnées géoréférencées des prismes de chaque état par topométrie. <br>
+			format (ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements.<br>
+			Nota bene : Il y a dans cette partie 7 états pour voir si la structure se détendait avec le temps au repos.
+			</p>
+                <table>
+                    <tbody><tr>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_00.cor" target="cor"> Topo_Etat_0.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_01.cor" target="cor"> Topo_Etat_1.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_02.cor" target="cor"> Topo_Etat_2.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_03.cor" target="cor"> Topo_Etat_3.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_04.cor" target="cor"> Topo_Etat_4.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_05.cor" target="cor"> Topo_Etat_5.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_06.cor" target="cor"> Topo_Etat_6.cor</a>
+						</td><td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/etats/pavillon_07.cor" target="cor"> Topo_Etat_7.cor</a>
+                    </td></tr>
+                </tbody></table>
+				
+				
+                <p><u> Différences</u><br>
+				Liens pour accéder aux coordonnées géoréférencées et des prismes à l'état 0 et à un autre état. <br>
+			format (nbr de mesure/ID/X/Y/Z/dX/dY/dZ) avec dX/dY/dZ les déplacements. </p>
+                <table>
+                    <tbody><tr>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat1_difference.cor" target="cor"> Topo_Etat_0-Etat_1.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat2_difference.cor" target="cor"> Topo_Etat_0-Etat_2.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat3_difference.cor" target="cor"> Topo_Etat_0-Etat_3.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat4_difference.cor" target="cor"> Topo_Etat_0-Etat_4.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat5_difference.cor" target="cor"> Topo_Etat_0-Etat_5.cor</a></td>
+                        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat6_difference.cor" target="cor"> Topo_Etat_0-Etat_6.cor</a></td>
+						<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/cor/topo/diff/etat7_difference.cor" target="cor"> Topo_Etat_0-Etat_7.cor</a></td>
+                    </tr>
+                </tbody></table> 
+
+
+
+            </div>
+			
+			<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+<p id="donnee_rvx" class="titre_para"><strong>Données RVX Laser automatique </strong></p>
+
+
+			<p> Liens pour accéder au fichier RVX generé par la laser automatique</p>
+
+<table>
+    <tbody><tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0_X701_0.rvx" target="rvx"> X700_0.-.X701_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0-.X702_0.rvx" target="rvx"> X700_0.-.X702_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0-.X703_0.rvx" target="rvx"> X700_0.-.X703_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0-.X704_0.rvx" target="rvx"> X700_0.-.X704_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0-.X705_0.rvx" target="rvx"> X700_0.-.X705_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X700_0-.X706_0.rvx" target="rvx"> X700_0.-.X706_0.rvx</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X701_0-.X702_0.rvx" target="rvx"> X701_0.-.X702_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X701_0-.X703_0.rvx" target="rvx"> X701_0.-.X703_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X701_0-.X704_0.rvx" target="rvx"> X701_0.-.X704_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X701_0-.X705_0.rvx" target="rvx"> X701_0.-.X705_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X701_0-.X706_0.rvx" target="rvx"> X701_0.-.X706_0.rvx</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X702_0-.X703_0.rvx" target="rvx"> X702_0.-.X703_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X702_0-.X704_0.rvx" target="rvx"> X702_0.-.X704_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X702_0-.X705_0.rvx" target="rvx"> X702_0.-.X705_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X702_0-.X706_0.rvx" target="rvx"> X702_0.-.X706_0.rvx</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X703_0-.X704_0.rvx" target="rvx"> X703_0.-.X704_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X703_0-.X705_0.rvx" target="rvx"> X703_0.-.X705_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X703_0-.X706_0.rvx" target="rvx"> X703_0.-.X706_0.rvx</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X704_0-.X705_0.rvx" target="rvx"> X704_0.-.X705_0.rvx</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X704_0-.X706_0.rvx" target="rvx"> X704_0.-.X706_0.rvx</a></td>
+    </tr>
+    <tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/rvx/X705_0-.X706_0.rvx" target="rvx"> X705_0.-.X706_0.rvx</a></td>
+    </tr>
+</tbody></table>
+			
+</div>
+
+
+ <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p id="donnee_new_topo" class="titre_para"><strong>Fichier New Topométrie </strong></p>
+				</div>
+	
+<p>	Liens pour accéder aux coordonnées géoréférencées et des prismes pour tous les états au format new.</p>
+<table>
+    <tbody><tr>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon.new">Topo_Etat_new_0.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_01.new">Topo_Etat_new_01.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_02.new">Topo_Etat_new_02.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_03.new">Topo_Etat_new_03.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_04.new">Topo_Etat_new_04.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_05.new">Topo_Etat_new_05.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_06.new">Topo_Etat_new_06.new</a></td>
+        <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/new/pavillon_07.new">Topo_Etat_new_07.new</a></td>
+    </tr>
+</tbody></table>
+			
+			<div>
+			
+			
+			
+			 <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p id="donnee_ply_ext" class="titre_para"><strong>Fichier Ply Laser Exterieur </strong></p>
+				</div>
+	
+			<p> Liens pour accéder au fichier PLY representant les nuages de points generés par les laser qui étaient situés à l'exterieur</p>
+	
+			<table border="1">
+				  <tbody><tr>
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_1cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_1cor.ply</a></td>
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_2cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_2cor.ply</a></td>
+				  </tr>        
+				  <tr>         
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_3cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_3cor.ply</a></td>
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_4cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_4cor.ply</a></td>
+				  </tr>        
+				  <tr>         
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_5cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_5cor.ply</a></td>
+					<td>       <a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_ext_ply/SP0_0cor-SP0_6cor.ply" target="_ply_laser_ext" download="">Laser_ext_Etat0-Etat_6cor.ply</a></td>
+				  </tr>        
+			</tbody></table>           
+			
+			
+			
+			
+			
+				 <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p id="donnee_ply" class="titre_para"><strong>Fichiers Ply Laser Interieur </strong></p>
+				</div>
+			<p> Liens pour accéder au fichier PLY representant les nuages de points generés par le laser qui était situé à l'interieur </p>
+			
+	 <table border="1">
+        <tbody><tr>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat1cor.ply" download="">Laser_int_Etat0-Etat_1.ply</a></td>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat2cor.ply" download="">Laser_int_Etat0-Etat_2.ply</a></td>
+        </tr>
+        <tr>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat3cor.ply" download="">Laser_int_Etat0-Etat_3.ply</a></td>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat4cor.ply" download="">Laser_int_Etat0-Etat_4.ply</a></td>
+        </tr>
+        <tr>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat5cor.ply" download="">Laser_int_Etat0-Etat_5.ply</a></td>
+            <td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/laser_int_ply/I_etat0cor-I_etat6cor.ply" download="">Laser_int_Etat0-Etat_6.ply</a></td>
+        </tr>
+    </tbody></table>
+	
+		 <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+            <p id="donnee_ply_photo" class="titre_para"><strong>Fichiers Ply Photogrammétrie </strong></p>
+				
+	<p> Liens pour accéder au fichier PLY representant les nuages de points generés par la photogrammetrie </p>
+	 <table border="1">
+	<tbody><tr>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat1cor.ply" download="">Photo_Etat0-Etat_1cor.ply</a></td>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat2cor.ply" download="">Photo_Etat0-Etat_2cor.ply</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat3cor.ply" download="">Photo_Etat0-Etat_3cor.ply</a></td>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat4cor.ply" download="">Photo_Etat0-Etat_4cor.ply</a></td>
+	</tr>
+	<tr>
+	<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat5cor.ply" download="">Photo_Etat0-Etat_5cor.ply</a></td>
+	<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/photogra/Etat0cor-Etat6cor.ply" download="">Photo_Etat0-Etat_6cor.ply</a></td>
+	</tr>			
+ </tbody></table>
+	</div>
+
+
+
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+<p id="donnee_ply_topo" class="titre_para"><strong>Fichiers Ply Topométrie </strong></p>
+	
+	<p> Liens pour accéder au fichier PLY representant les nuages de points generés par la topométrie </p>
+	
+	 <table border="1">
+	<tbody><tr>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_01cor.ply" download="">Topo_Etat_0-Etat_1.ply</a></td>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_02cor.ply" download=""> Topo_Etat_0-Etat_2.ply</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_03cor.ply.ply" download=""> Topo_Etat_0-Etat_3.ply</a></td>
+		<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_04cor.ply.ply" download=""> Topo_Etat_0-Etat_4.ply</a></td>
+	</tr>                            
+	<tr>
+	<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_05cor.ply" download="">    Topo_Etat_0-Etat_5.ply</a></td>
+	<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_06cor.ply" download="">    Topo_Etat_0-Etat_6.ply</a></td>
+	<td><a href="http://dias.ensg.eu/2024/StructureENPC/fichier/ply/topo/pavillon_00cor-pavillon_07cor.ply" download="">    Topo_Etat_0-Etat_7.ply</a></td>
+	</tr>			
+ </tbody></table>
+
+
+</div>
+
+
+<hr width="50%">
+
+<h1 id="bilan">Bilan et Perspectives</h1>
+
+<p>Lors de ce projet notre but était de pouvoir observer la déformation 
+de la structure lors de son chargement et de fournir les résultats à 
+Romane Boutillier pour sa thèse. Nous avons pu mesurer ces déformations à
+ l'aide de plusieurs techniques et sur des endroits ponctuels (cibles, 
+prismes) de la structure. Les mesures à chaque état sont dans <a href="#brute">Données</a>. La différence entre l'état 0 et les autres pour chaque technique est aussi dans <a href="#brute">Données</a></p>
+<br>
+<br>
+<p>Nous nous sommes aussi demandé quelles étaient les différences entre 
+les techniques que nous avons utilisé. Pour ce faire, nous avons 
+réalisés plusieurs graphiques et tableaux qui se trouvent à la suite. De
+ manière général, la topométrie est considérée comme la technique la 
+plus précise et est donc celle à laquelle nous avons comparés nos autres
+ techniques. De plus, dans le cas du laser les visées vers les cibles 
+sont rasantes, ce qui rend la mesure moins précise. Cependant nous 
+remarquons que les courbes sont globalement similaires et que les 
+mesures de photogrammétrie correspondent plus que les mesures de 
+lasergrammétrie avec les mesures de topométrie</p> 
+
+
+
+
+  <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Comparaison des techniques </strong></p>
+		
+		
+		
+		Si vous voulez le fichier excel de l'ensemble des comparaisons vous pouvez le télécharger en cliquant ici :<a href="http://dias.ensg.eu/2024/StructureENPC/fichier/excel_comparaison/comparaison_finale.xlsx"> Comparaison des differentes techniques </a>
+		<br>
+		<br>
+		
+	<!--	
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/laser_ext_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/laser_int.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/photo_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/topo_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_laser_ext_photo.png ">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_topo_laser.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_topo_photo.png">
+		-->
+		  
+                <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/topometrie.png" alt="Image 1" onclick="ouvrirdansnouvelonglet(this.src)" width="20%">
+       
+                <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/phtogrammetrie.png" alt="Image 2" onclick="ouvrirdansnouvelonglet(this.src)" width="20%">
+        
+                <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/laser_exterieur.png" alt="Image 3" onclick="ouvrirdansnouvelonglet(this.src)" width="20%">
+             
+                <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/laser_interieur.png" alt="Image 4" onclick="ouvrirdansnouvelonglet(this.src)" width="20%">
+               
+        </div>
+		    <p class="section-text">Les graphiques présentés ci-dessus 
+représentent les déplacements du prisme 1 et de la cible 1 correspondant
+ à la plaque numéro 1 de la structure. Les cibles et le prisme 
+d'auscultation ne sont pas à la même position mais sur la même plaque 
+ainsi on suppose qu'il est possible de comparer leurs déplacements.
+            On remarque que les déplacemennts observés par les 
+différentes techniques evoluent selon la même tendance mais avec une 
+échelle différente. 
+        
+        La comparaison est disponible pour les autres cibles ci-dessous.</p>
+		
+    </div>
+
+<!--
+
+  <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+        <p class="titre_para"><strong>Comparaison des techniques </strong></p>
+		
+		
+		
+		<a href="fichier\excel_comparaison\comparaison.xlsx"> Excel des comparaisons des differentes techniques </a>
+		<br>
+		<br>
+		
+		
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/laser_ext_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/laser_int.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/photo_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/topo_prisme1.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_laser_ext_photo.png ">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_topo_laser.png">
+<img width="20%" onclick="ouvrirdansnouvelonglet(this.src)" src="fichier/excel_comparaison/x_topo_photo.png">
+
+
+		<div style="text-align: center;">
+		  
+                <img src="fichier\excel_comparaison\topometrie.png" alt="Image 1" width="20%" onclick="ouvrirdansnouvelonglet(this.src)">
+       
+                <img src="fichier\excel_comparaison\phtogrammetrie.png" alt="Image 2" width="20%" onclick="ouvrirdansnouvelonglet(this.src)">
+        
+                <img src="fichier\excel_comparaison\laser_exterieur.png" alt="Image 3" width="20%" onclick="ouvrirdansnouvelonglet(this.src)">
+             
+                <img src="fichier\excel_comparaison\laser_interieur.png" alt="Image 4" width="20%" onclick="ouvrirdansnouvelonglet(this.src)">
+               </div>
+        </div>
+		    <p class="section-text">Les graphiques présentés ci-dessus représentent les déplacements du prisme 1 et de la cible 1 correspondant à la plaque numéro 1 de la structure. Les cibles et le prisme d'oscultation ne sont pas à la même position mais sur la même plaque ainsi on suppose qu'il est possible de comparer leurs déplacements.
+            On remarque que les déplacemennts observés par les différentes techniques evoluent selon la même tendance mais avec une échelle différente. 
+        
+        La comparaison est disponible pour les autres cibles ci-dessous.</p>
+		
+    </div>
+
+-->
+            <div style="text-align: center; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+                <p id="cible_dplt" class="titre_para"><strong>Visualisation du deplacement des cibles Photgrammetrique et Laser en XYZ </strong> Ecart à la moyenne</p>
+<table style="margin: auto;" border="1">
+  <tbody><tr>
+    <th colspan="2">Deplacement de cible photogrammetrie et laser</th>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/01_E_deplacements_xyz.svg" target="_blank">01_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/02_E_deplacements_xyz.svg" target="_blank">02_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/03_E_deplacements_xyz.svg" target="_blank">03_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/08_E_deplacements_xyz.svg" target="_blank">08_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/17_E_deplacements_xyz.svg" target="_blank">17_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/20_E_deplacements_xyz.svg" target="_blank">20_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/23_E_deplacements_xyz.svg" target="_blank">23_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/24_E_deplacements_xyz.svg" target="_blank">24_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/25_E_deplacements_xyz.svg" target="_blank">25_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/26_E_deplacements_xyz.svg" target="_blank">26_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/27_E_deplacements_xyz.svg" target="_blank">27_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/28_E_deplacements_xyz.svg" target="_blank">28_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/30_E_deplacements_xyz.svg" target="_blank">30_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/33_E_deplacements_xyz.svg" target="_blank">33_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/34_E_deplacements_xyz.svg" target="_blank">34_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/35_E_deplacements_xyz.svg" target="_blank">35_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/40_E_deplacements_xyz.svg" target="_blank">40_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/41_E_deplacements_xyz.svg" target="_blank">41_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/48_E_deplacements_xyz.svg" target="_blank">48_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/49_E_deplacements_xyz.svg" target="_blank">49_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/50_E_deplacements_xyz.svg" target="_blank">50_E</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/BWL03_deplacements_xyz.svg" target="_blank">BWL_03</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/BWL04_deplacements_xyz.svg" target="_blank">BWL_04</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/BWL05_deplacements_xyz.svg" target="_blank">BWL_05</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/figures_deplacement_photo_laser_combine/BWL06_deplacements_xyz.svg" target="_blank">BWL_06</a></td>
+  </tr>
+</tbody></table>
+
+<table style="margin: auto;" border="1">
+  <tbody><tr>
+    <th colspan="2">Deplacement de cible photogrammetrie</th>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/fig_photo/00_E_fig.svg" target="_blank">00_E</a></td>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/fig_photo/29_E_fig.svg" target="_blank">29_E</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://dias.ensg.eu/2024/StructureENPC/image/photogra/fig_photo/31_E_0_fig.svg" target="_blank">31_E</a></td>
+    <td></td>
+  </tr>
+</tbody></table>
+
+
+      <div style="text-align: center;padding-top:20pt">
+	  <p style="padding-bottom:20pt"><strong> Image des Deplacements des cibles selon Photgrammetrique et Laser (Gauche) et seulement Photogrammetrique (droite)</strong> </p>
+        <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/deplacements_combines_toutes_cibles.svg" style="display: inline-block; vertical-align: top; margin-right: 20px;" onclick="ouvrirdansnouvelonglet(this.src)" width="45%">
+        <img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/deplacements_xyz_cibles_photo.svg" style="display: inline-block; vertical-align: top;" onclick="ouvrirdansnouvelonglet(this.src)" width="45%">
+      </div>
+
+            </div>
+
+
+            <div>
+
+
+                <!-- Image côte à côte  -->
+
+                <div id="image_etat" style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+                    <p class="titre_para"><strong>Image des différents états </strong></p>
+                </div>
+
+                <div>
+                    <figure style="display: flex;">
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat0_0.I.tif" alt="Image 1" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 0</figcaption>
+                        </div>
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat1_0.I.tif" alt="Image 2" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 1</figcaption>
+                        </div>
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat2_0.I.tif" alt="Image 3" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 2</figcaption>
+                        </div>
+                    </figure>
+                </div>
+
+
+                <div>
+                    <figure style="display: flex;">
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat3_0.I.tif" alt="Image 1" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 3</figcaption>
+                        </div>
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat4_0.I.tif" alt="Image 2" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 4</figcaption>
+                        </div>
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat5_0.I.tif" alt="Image 3" onclick="ouvrirdansnouvelonglet(this.src)" width="100%">
+                            <figcaption>Etat 5</figcaption>
+                        </div>
+                    </figure>
+                </div>
+
+                <div>
+                    <figure style="display: flex;">
+                        <div style="flex: 1; padding-left: 5px;">
+                            <img src="Photo_Laser_Etats_(unis)_lol/Etat6_0.I.tif" alt="Image 1" onclick="ouvrirdansnouvelonglet(this.src)" width="33%">
+                            <figcaption>Etat 6</figcaption>
+                        </div>
+                    </figure>
+                </div>
+
+
+            </div>
+			
+		<div style="text-align: center;padding-top:20pt">	
+		<hr width="30%">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/logo350.png" hspace="20" height="80">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/pont_logo.png" hspace="20" height="80">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/NAVIER-LOGO-COULEUR-RVB-ECRAN-72ppp_pour-site.png" hspace="20" height="80">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/UGE.png" hspace="20" height="50">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/micmac.jpg" title="MicMac" alt="MicMac" hspace="20" height="80">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/PlyXDrop.jpg" title="PlyXDrop" alt="PlyXDrop" hspace="20" height="80">
+		<img src="ENSG-PPMD25%20_%20Mesure%20de%20Deformation%20d'une%20Structure_fichiers/Comp3D.png" title="Comp3D" alt="Comp3D" hspace="20" height="80">
+</div>
+<br>
+
+<br>
+
+<br>
+</div></div></div></body></html>
