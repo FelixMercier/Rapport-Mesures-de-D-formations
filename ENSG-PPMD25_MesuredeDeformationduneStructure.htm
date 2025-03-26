@@ -158,6 +158,8 @@ photogrammétrie.
 </p>
 
 
+<<<<<<< HEAD
+=======
 <div class="txt-gif">
     
     <div class="text-zone">
@@ -183,11 +185,51 @@ photogrammétrie.
 </div>
 
 
-<p>
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Méthodologie Laser </strong></p>
+</div>
+<div>
+<p>Dans le cadre de l'acquisition laser, plusieurs étapes ont été mises en place afin d'assurer la précision des mesures et la fiabilité des données collectées. 
+    Tout d'abord, nous avons vérifié que le laser restait immobile entre chaque état de mesure. 
+    Pour ce faire, nous avons posé l'hypothèse que les cibles externes à la structure étaient fixes, 
+    servant ainsi de références stables. 
+    Cette contrainte nous a permis de détecter tout éventuel déplacement du laser. 
+    Des points spécifiques ont été définis et fixés afin de limiter l'observation aux seuls mouvements potentiels du laser, 
+    garantissant ainsi la cohérence des acquisitions. </p>
+    <p>• Recontruction 3D :<br>
+    -8 stations de mesure ont été établies. 
+    Ces stations ont permis de capturer les références nécessaires, les points de contrôle (BW), ainsi que l'extérieur de la structure, offrant une vision d'ensemble cohérente. <br>
+    -Mise en place d'une 9ème station positionnée en hauteur au-dessus du conteneur pour scanner le toit de la structure. 
+    Cette étape a permis de finaliser au mieux le modèle 3D en capturant les zones complémentaires de la structure.</p>
+    <p>• Mesure des déformations :<br>
+    -Mise en station du scanner au centre à l'interieur de la structure sur embase.<br>
+    -Enregistrement des mesures pour chaque état de deformation (après modification des poids). Les ciblettes BW sur la structure sont observables et permettent de mesurer les deformation par rapport au cibles à l'exterieur de la structure (fixes) qui sont elles aussi, observables.<br>
+    -Scanner contrôlable à distance par connexion Wi-Fi, pour eviter la presence d'un opérateur sur la structure.<br>
     
 </p>
 
 
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Traitement Laser </strong></p>
+</div>
+<div>
+<p>L’utilisation du format PLY a été privilégiée pour les raisons suivantes :<br>
+    • Une détection renforcée grâce à des cibles codées (type "ciblette") facilitant leur identification avec plyXGraphic.<br>
+    • Un report des cibles non détectées automatiquement lors du processus initial.<br>
+    • L’élimination des doublons, réalisée en ajoutant un "b" à la fin des identifications.<br>
+    • L’exportation des points identifiés sous forme de coordonnées XYZ.<br>
+    • Nous avons pris 2 points aux extremitées du plancher qui fixent une référence definissant l'axe des X. 
+    • Preparation d'un calcul comp3D en fournissant un fichier .obs qui correspond à chaque fichier XYZ de chaque scan ainsi qu'un fihcier .cor qui definit l'axe des X (definition d'un gisement et d'un point fixe). 
+    Enfin, la vérification de l’immobilité du laser entre chaque état a été assurée par l’observation des références, sous la contrainte de leur stabilité, adaptée aux spécificités de notre chantier.
+
+</p>
+<br>
+<br>
+
+</div>
+
+
+>>>>>>> 70dae6cc882e9009a4089e54ece0ad7067c2d79f
 <h2>Instruments : </h2>
 <h3>Topographie : </h3>
 Nous avons utilisé 3 tachéomètres automatiques pour la topographie, que sont le TS30, le TM60 et le TS15 de chez Leica. 
