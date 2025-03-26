@@ -218,8 +218,8 @@ photogrammétrie.
     • Un report des cibles non détectées automatiquement lors du processus initial.<br>
     • L’élimination des doublons, réalisée en ajoutant un "b" à la fin des identifications.<br>
     • L’exportation des points identifiés sous forme de coordonnées XYZ.<br>
-    • Nous avons pris 2 points aux extremitées du plancher qui fixent une référence definissant l'axe des X. 
-    • Preparation d'un calcul comp3D en fournissant un fichier .obs qui correspond à chaque fichier XYZ de chaque scan ainsi qu'un fihcier .cor qui definit l'axe des X (definition d'un gisement et d'un point fixe). 
+    • Nous avons pris 2 points aux extremitées du plancher qui fixent une référence definissant l'axe des X.<br>
+    • Preparation d'un calcul comp3D en fournissant un fichier .obs qui correspond à chaque fichier XYZ de chaque scan ainsi qu'un fihcier .cor qui definit l'axe des X (definition d'un gisement et d'un point fixe) ainsi que les fichiers .obs et .corr issus des mesures topométriques. 
     Enfin, la vérification de l’immobilité du laser entre chaque état a été assurée par l’observation des références, sous la contrainte de leur stabilité, adaptée aux spécificités de notre chantier.
 
 </p>
@@ -244,11 +244,26 @@ Les deux appareils photos sont calibrés en amont. On cherche à calibrer la dis
 
 </div>
 
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Traitement photogrammértie </strong></p>
+</div>
+<div>
+<p>• Détermination, orientation et visualisation des points homologues par paires de photos fixent. <br>
+• Extraction des cibles BW codées en xml.<br>
+• Conversion xml en S2D. <br>
+• Renommage des doublons par ajout d’un ‘b’ et contrôles des nomenclatures.<br>
+• Verification visuelle par superposition de l’image et du fichier vectoriel.<br>
+• Rattachement données photogrammétrique au Lasergrammétrique. <br>
+• Ajout des mesures manquantes dans le fichier S2D concatenés à partir des données lasergrammétriques.<br>
+</p>
+<br>
+<br>
 
+</div>
 
 >>>>>>> 70dae6cc882e9009a4089e54ece0ad7067c2d79f
 <h2>Instruments : </h2>
-<h3>Topographie : </h3>
+<h3>Topométrie : </h3>
 Nous avons utilisé 3 tachéomètres automatiques pour la topographie, que sont le TS30, le TM60 et le TS15 de chez Leica. 
 Avec chaque tachéomètres, un tour d'horizon à été réaliser pour faire l'apprentissage de l'automatisation pour un lever à chaque état.
 Les tachéomètres ont été positionnés de chaque côté de la structure pour observer les déformations.
