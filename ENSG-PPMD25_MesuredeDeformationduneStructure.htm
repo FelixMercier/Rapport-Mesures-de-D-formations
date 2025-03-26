@@ -139,7 +139,7 @@ photogrammétrie.
 
 
 <hr width="50%">
-<h1 id="methodo">Méthodologie</h1>
+<h1 id="methodo">Méthodologie générale </h1>
 
 <p>
 
@@ -183,17 +183,67 @@ photogrammétrie.
 </div>
 
 
-<p>
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Méthodologie Laser </strong></p>
+</div>
+<div>
+<p>Dans le cadre de l'acquisition laser, plusieurs étapes ont été mises en place afin d'assurer la précision des mesures et la fiabilité des données collectées. 
+    Tout d'abord, nous avons vérifié que le laser restait immobile entre chaque état de mesure. 
+    Pour ce faire, nous avons posé l'hypothèse que les cibles externes à la structure étaient fixes, 
+    servant ainsi de références stables. 
+    Cette contrainte nous a permis de détecter tout éventuel déplacement du laser. 
+    Des points spécifiques ont été définis et fixés afin de limiter l'observation aux seuls mouvements potentiels du laser, 
+    garantissant ainsi la cohérence des acquisitions. </p>
+    <p>• Recontruction 3D :<br>
+    -8 stations de mesure ont été établies. 
+    Ces stations ont permis de capturer les références nécessaires, les points de contrôle (BW), ainsi que l'extérieur de la structure, offrant une vision d'ensemble cohérente. <br>
+    -Mise en place d'une 9ème station positionnée en hauteur au-dessus du conteneur pour scanner le toit de la structure. 
+    Cette étape a permis de finaliser au mieux le modèle 3D en capturant les zones complémentaires de la structure.</p>
+    <p>• Mesure des déformations :<br>
+    -Mise en station du scanner au centre à l'interieur de la structure sur embase.<br>
+    -Enregistrement des mesures pour chaque état de deformation (après modification des poids). Les ciblettes BW sur la structure sont observables et permettent de mesurer les deformation par rapport au cibles à l'exterieur de la structure (fixes) qui sont elles aussi, observables.<br>
+    -Scanner contrôlable à distance par connexion Wi-Fi, pour eviter la presence d'un opérateur sur la structure.<br>
     
 </p>
 
 
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Traitement Laser </strong></p>
+</div>
+<div>
+<p>L’utilisation du format PLY a été privilégiée pour les raisons suivantes :<br>
+    • Une détection renforcée grâce à des cibles codées (type "ciblette") facilitant leur identification avec plyXGraphic.<br>
+    • Un report des cibles non détectées automatiquement lors du processus initial.<br>
+    • L’élimination des doublons, réalisée en ajoutant un "b" à la fin des identifications.<br>
+    • L’exportation des points identifiés sous forme de coordonnées XYZ.<br>
+    • Nous avons pris 2 points aux extremitées du plancher qui fixent une référence definissant l'axe des X. 
+    • Preparation d'un calcul comp3D en fournissant un fichier .obs qui correspond à chaque fichier XYZ de chaque scan ainsi qu'un fihcier .cor qui definit l'axe des X (definition d'un gisement et d'un point fixe). 
+    Enfin, la vérification de l’immobilité du laser entre chaque état a été assurée par l’observation des références, sous la contrainte de leur stabilité, adaptée aux spécificités de notre chantier.
+
+</p>
+<br>
+<br>
+
+</div>
+
+
 <h2>Instruments : </h2>
 <h3>Topographie : </h3>
+Nous avons utilisé 3 tachéomètres automatiques pour la topographie, que sont le TS30, le TM60 et le TS15 de chez Leica. 
+Avec chaque tachéomètres, un tour d'horizon à été réaliser pour faire l'apprentissage de l'automatisation pour un lever à chaque état.
+Les tachéomètres ont été positionnés de chaque côté de la structure pour observer les déformations.
 
 <h3>Lasergrammétrie : </h3>
+Nous avons utilisé le <a href="https://cpec.leica-geosystems.com/fr/producto/scanner-laser-scanstation-p40/">laser Leica P40</a>. 
 
 <h3>Photogrammétrie : </h3>
+Nous avons utilisé 2 appareils photos <a href="https://www.canon.fr/for_home/product_finder/cameras/digital_slr/eos-80d/">Canon 80D</a> et <a href="https://www.canon.fr/support/consumer/products/cameras/eos/eos-50d.html?type=manuals"> Epson 50D</a>.
+
+<h3>Prismes et cibles</h3>
+Nous avons utilisés 3 types de prisme differents. 3 prismes de référence (333, 444, 555, 666) que sont des <a href="https://www.lepont.fr/3570-prisme-haute-precision-leica-gpr121-leica-premium-641617.html?utm_source=google&utm_medium=Shopping&utm_campaign=Shopping&utm_content=32715960&gad_source=1&gbraid=0AAAAADskxhlyTdduyGUwJMCm9FKWHLtno&gclid=Cj0KCQjwhYS_BhD2ARIsAJTMMQYj6c4tC6OV9zpcVALqXJySF4q66Aa80RZlplEGw4c4X3DN_L7ednIaArK_EALw_wcB">leica GPR121</a>,
+des <a href="https://www.geomesure.fr/shop/accessoires-auscultation-rail/439-mini-prisme-pour-auscultation-trimble.html?srsltid=AfmBOopd-Xs2bd1jIgZbn1DHUCcT_B0lxtyL5s_sh-ZlUmqpnm69DzoN"> mini prismes d'ausculation trimble</a>,
+des <a href="https://www.lepont.fr/3714-mini-prisme-auscultation-equerre-leica-gmp104-641762.html?utm_source=google&utm_medium=Shopping&utm_campaign=Shopping&utm_content=32715953&gad_source=1&gbraid=0AAAAADskxhlyTdduyGUwJMCm9FKWHLtno&gclid=Cj0KCQjwhYS_BhD2ARIsAJTMMQbymFJWBHNoaAT94rHuWs7MG7dwvydRvck68AGmkWejrrWIrUlODmoaAukCEALw_wcB"> mini prismes d'ausculation leica</a>.
+
 
 
 <h2>Cibles : </h2>
