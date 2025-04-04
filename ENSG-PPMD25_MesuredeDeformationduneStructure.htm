@@ -219,16 +219,6 @@ photogrammétrie.
 <div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
     <p class="titre_para"><strong>Traitement Laser </strong></p>
 </div>
-
-<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
-    <p class="titre_para"><strong>Méthodologie Laser automatique </strong></p>
-</div>
-
-<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
-    <p class="titre_para"><strong>Traitement Laser automatique </strong></p>
-</div>
-
-<div>
 <p>L’utilisation du format PLY a été privilégiée pour les raisons suivantes :<br>
     • Une détection renforcée grâce à des cibles codées (type "ciblette") facilitant leur identification avec plyXGraphic.<br>
     • Un report des cibles non détectées automatiquement lors du processus initial.<br>
@@ -239,6 +229,24 @@ photogrammétrie.
     Enfin, la vérification de l’immobilité du laser entre chaque état a été assurée par l’observation des références, sous la contrainte de leur stabilité, adaptée aux spécificités de notre chantier.
 
 </p>
+
+<div style="text-align: left; padding-top: 40px; padding-bottom: 20px; padding-left: 10pt;">
+    <p class="titre_para"><strong>Traitement Laser automatique </strong></p>
+</div>
+<p>
+Objectif : avoir le nuage de points 3D référencé.<br>
+
+Conversion des fichiers .PLY au format .tif (projection 2D sur un cylindre) par état.<br>
+ • Traitement manuel de tous les éléments superflus : corde, seaux et autres éléments externes. <br>
+ • Utilisation de Micmac V1 pour la détection de point d’intérêts sift entre tous les états. <br>
+ • Repassage en 3D à partir les points appariés. <br>
+ • Les paires de points entre les états permettent de quantifier leurs déplacements. <br>
+ • Filtrage lourd afin de supprimer les points subissant plus de 1,8cm. <br>
+ • Vérification des associations de points à partir d’images. <br>
+</p>
+
+<div>
+
 <br>
 <br>
 
